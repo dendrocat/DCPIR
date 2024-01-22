@@ -1,0 +1,73 @@
+/*.halk, .batman, .spider_man {
+    background-color: #fff;
+    border-width: 2px;
+    border-style: groove;
+    border-color: #000;
+    width: 70%;
+    margin: 1px 10px;
+    padding: 2px;
+}
+*/
+
+.sign {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    width: 20%;
+    margin: 1px 10px;
+    border: 2px dotted blue;
+    padding: 2px;
+}
+
+figure>figcaption:hover {
+    text-shadow:  #f0f 3px 3px 2px;
+}
+
+dd:hover {
+    text-shadow:  #f0a 3px 3px 2px;
+    font-style: italic;
+}
+
+main {
+    /*border: 2px solid black;*/
+    min-height: 1300px;
+}
+
+aside {
+    float: right;
+    font-family:'Courier New', Courier, monospace;
+    width: 100px;
+    min-height: 1300px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+aside:hover {
+    color: blueviolet;
+}
+
+img:hover {
+    border-radius: 5%;
+    border-top: 2px blue;
+    border-style: solid;
+}
+
+a:active {
+    color: red;
+}
+
+#contacts {
+    font-style: italic;
+}
+
+dt ~ dd {
+    background-color: #fff;
+    border-width: 2px;
+    border-style: groove;
+    border-color: #000;
+    width: 70%;
+    margin: 1px 10px;
+    padding: 2px;
+}
+ main + article {
+    color: #040;
+ }

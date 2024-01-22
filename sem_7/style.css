@@ -1,0 +1,842 @@
+:root{
+    background: rgb(33,40,50);
+}
+
+body {
+    --font-tittle: italic small-caps bold 20px cursive;
+    --font-text: normal 16px "Fira Sans", serif;
+
+    --bord-r: 7px;
+
+    --animation-func: cubic-bezier(.3,1,1,.26);
+
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    cursor:pointer;
+    background-color: rgba(255, 255, 255, .9);
+    border: none;
+    border-radius: var(--bord-r);
+    font: var(--font-text);
+}
+
+button:active {
+    background-color: rgb(255, 255, 255);
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, .9));
+}
+
+.skew__cards {
+    position: relative;
+    --skew-deg: 20deg;
+    margin: 50px 0;
+    
+    min-height: 250px;
+    max-height: 750px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    row-gap: 100px;
+
+}
+
+.skew__card {
+    display: block;
+    height: 250px;
+    width: 200px;
+    position: relative;
+}
+
+.skew__card::before, .skew__card::after {
+    display: block;
+    content: ' ';
+    opacity: 0;
+
+    z-index: 2;
+    position: absolute;
+
+    width: 50px;
+    height: 50px;
+    border-radius: var(--bord-r);
+    background-color: rgba(255, 255, 255, .1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    backdrop-filter: blur(5px); 
+
+    transition: opacity .5s;
+}
+
+.skew__card::before {
+    animation: block__bbefore_from .5s ease 0s 1 normal forwards;
+    bottom: 95%;
+    left: 20%; 
+}
+
+.skew__card::after {
+    animation: block__bafter_from .5s ease 0s 1 normal forwards;
+    top: 95%;
+    right: 10%; 
+}
+
+.skew__card:hover::before {
+    animation: block__bbefore_to 1s var(--animation-func) .25s 1 normal forwards;
+}
+
+.skew__card:hover::after {
+    animation: block__bafter_to 1s var(--animation-func) .25s 1 normal forwards;
+}
+
+.skew__card:hover::before, 
+.skew__card:hover::after {
+    opacity: 1;
+    display: block;
+}
+
+
+@keyframes block__bbefore_to {
+    from {
+        bottom: 95%;
+    }
+    to {
+        bottom: 75%;
+    }
+}
+@keyframes block__bbefore_from {
+    from {
+        bottom: 75%;
+    }
+    to {
+        bottom: 95%;
+    }
+}
+
+@keyframes block__bafter_to {
+    from {
+        top: 95%;
+    }
+    to {
+        top: 75%;
+    }
+}
+@keyframes block__bafter_from {
+    from {
+        top: 75%;
+    }
+    to {
+        top: 95%;
+    }
+}
+
+.skew__tittle {
+    line-height: 20px;
+    position: absolute;
+    top: 50%;
+
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+    border-radius: var(--bord-r);
+    padding: 10px 20px;
+    height: 120px;
+    width: 80%;
+
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, .1);
+    backdrop-filter: blur(5px);
+
+    color: whitesmoke;
+}
+
+
+.tittle {
+    font: var(--font-tittle);
+}
+span {
+    font: var(--font-text);
+}
+
+.skew__tittle > button {
+    margin-top: 10px;
+    margin-left: 5px;
+    padding: 3px 5px;
+    width: 55%;
+}
+
+.skew__block {
+    display: block;
+    height: 100%;
+    width: 55%;
+    
+    position: absolute;
+    left: 50%;
+
+    border-radius: var(--bord-r);
+    
+    transform: skew(var(--skew-deg)) translateX(-50%);
+    transition: all .5s ease;
+}
+
+.block1 {
+    filter: drop-shadow(0px 0px 20px rgba(222,0,0));
+    background: linear-gradient(-30deg, 
+    rgba(180,233,0,0.9) 10%, 
+    rgba(219,0,0,0.8) 60%);;
+}
+
+.block2 {
+    
+    filter: drop-shadow(0px 0px 20px rgba(0,158,233,0.4));
+    background: linear-gradient(-27deg, 
+    rgba(0,158,233,0.7) 30%, 
+    rgba(219,0,85,0.8) 94%);
+}
+
+.block3 {
+    background: linear-gradient(-30deg, 
+    rgb(167,219,0) 2%, 
+    rgb(104,176,28) 41%,
+    rgb(0,137,233) 98%);
+    filter: drop-shadow(0 0 10px rgb(104,176,28));
+}
+
+.skew__card:hover .skew__block {
+    transform: skew(0deg) translateX(-50%);
+}
+
+
+
+
+.d1 {
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-60%);
+    margin: 200px 0;
+    
+    width: 50%;
+    height: 40vh;
+    min-width: 340px;
+    max-width: 500px;
+}
+
+.d2 {
+    width: 100%;
+    height: 100%;
+}
+
+ .d1::before, .d1::after, .d2::before {
+    display: block;
+    content: ' ';
+
+    position: absolute;
+
+    border-radius: var(--bord-r);
+    background-color: rgba(255, 255, 255, .1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    backdrop-filter: blur(5px); 
+}
+
+.d1::before {
+    animation: d1_before 2s cubic-bezier(.36,1.15,.52,-0.03) 0s infinite
+      alternate both;
+    animation-play-state: paused;
+
+    top: -10%;
+    right: -40%;
+    width: 150px;
+    height: 50px;
+}
+
+@keyframes d1_before {
+    from {
+        top: -10%;
+        right: -40%;
+        width: 150px;
+        height: 50px;
+    }
+    to {
+        width: 50px;
+        height: 150px;
+        top: 0%;
+        right: -30%;
+    }
+}
+
+.d1::after {
+    animation: d1_after 2.1s cubic-bezier(.23,1.75,.56,-0.81) 
+    0s infinite alternate both;
+    animation-play-state: paused;
+
+    width: 40px;
+    height: 100px;
+    bottom: 35%;
+    right: 95%;
+}
+
+@keyframes d1_after {
+    from {
+        width: 40px;
+        height: 100px;
+        bottom: 35%;
+        right: 95%;
+    }
+    to {
+        width: 90px;
+        height: 30px;
+        bottom: 0%;
+        right: 105%;
+    }
+}
+
+.d2::before {
+    animation: d2_before 5s cubic-bezier(.46,2.13,.52,-0.96) 0s
+                infinite alternate both;
+    animation-play-state: paused;
+
+    z-index: -1;
+    width: 80px;
+    height: 80px;
+
+    top: 70%;
+    left: 115%;
+}
+
+@keyframes d2_before {
+    from {
+        width: 80px;
+        transform: translateX(0%);
+    }
+    to {
+        width: 79px;
+        transform: translateX(-500px);
+    }
+}
+
+form {
+    --font-t: bold normal 24px sans-serif;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 50px;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: var(--bord-r);
+
+    color: whitesmoke;
+
+    background: rgba(255, 255, 255, .1);
+    backdrop-filter: blur(5px);
+}
+
+ form::before, form::after {
+    display: block;
+    content: ' ';
+
+    z-index: 2;
+    position: absolute;
+
+    width: 50px;
+    height: 50px;
+    border-radius: var(--bord-r);
+    background-color: rgba(255, 255, 255, .1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    backdrop-filter: blur(5px); 
+}
+
+form::before {
+    animation: form_before 2s ease-in-out 0s infinite alternate both;
+    animation-play-state: paused;
+
+    top: -15%;
+    left: 20%;
+}
+
+@keyframes form_before {
+    from {
+        top: -15%;
+        left: 20%;
+        transform: rotate(0deg) skew(0deg, 0deg);
+    }
+    to {
+        top: -10%;
+        left: 30%;
+        transform: rotate(720deg) skew(40deg, 30deg);
+    }
+}
+
+form::after {
+    animation: form_after 2s cubic-bezier(1,2.38,.16,-0.87) 0s 
+                infinite alternate both;
+    animation-play-state: paused;
+
+    top: 105%;
+    right: 40%;
+}
+
+@keyframes form_after {
+    from {
+        top: 105%;
+        right: 40%;
+        transform: rotate(0) scale(1);
+    }
+    to {
+        top: 110%;
+        right: 60%;
+        transform: rotate(360deg) scale(2);
+    }
+}
+
+.d1:hover::before, .d1:hover::after,
+.d1:hover .d2::before, .d1:hover form::before,
+.d1:hover form::after {
+    animation-play-state: running;
+}
+
+
+.log {
+    font: var(--font-t);
+}
+.log + span {
+    margin-top: 2px;
+    display: block;
+    width: 70px;
+    height: 4px;
+    background-color: whitesmoke;
+}
+
+
+input {
+    height: 5vh;
+
+    border: none;
+    border-radius: 4vh;
+
+    background-color: rgba(255, 255, 255, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+input::placeholder {
+    font: var(--font-t);
+    font-size: 16px;
+    color: rgba(255, 255, 255, .4);
+}
+
+.confirm {
+    width: 23%;
+    height: 11%;
+    border-radius: 20px;
+
+    font: var(--font-t);
+    font-size: 18px;
+    color: rgba(0, 0, 0, .6);
+}
+
+.inf {
+    display: flex;
+    flex-direction: column;
+}
+
+.inf > span {
+    font: var(--font-t);
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.inf > span > a {
+    text-decoration: none;
+    color: red;
+}
+
+.inf > span > a:hover {
+    text-decoration: underline;
+}
+
+
+
+
+.blur__cards {
+    margin-top: 300px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+    column-gap: 10px;
+    row-gap: 30px;
+
+    width: 100%;
+    min-height: 400px;
+    max-height: 800px;
+}
+
+.blur__card {
+    --font-numer: bold normal 50px "Arial Black", Gadget,sans-serif;
+        
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-around;
+    align-items: center;
+
+    width: 250px;
+    height: 350px;
+
+    border: none;
+    border-radius: var(--bord-r);
+
+    background-color: whitesmoke;
+
+    transition: transform .5s ease,
+                filter .5s ease;
+}
+
+.blur__card:hover {
+    transform: scale(1.1);
+}
+
+.blur__cards:hover > .blur__card:not(:hover) {
+    filter: blur(10px);
+}
+
+.card1 {
+    --color: rgb(212,190,0);
+}
+
+.card2 {
+    --color: rgb(212,27,0);
+}
+
+.card3 {
+    --color: rgb(0,156,212);
+}
+
+.numer {
+    position: relative;
+
+    width: 100%;
+    height: 40%;
+    border-top-right-radius: var(--bord-r);
+    border-top-left-radius: var(--bord-r);
+    border-bottom-left-radius: 60%;
+    border-bottom-right-radius: 60%;
+    background-color: var(--color);
+
+
+}
+
+.numer > p {
+    position: absolute;
+    top: 20%;
+    transform: translateY(-50%);
+
+    width: 100%;
+    text-align: center;
+
+    font: var(--font-numer);
+    color: whitesmoke;
+
+}
+
+.descript {
+    width: 100%;
+    height: 45%;
+
+    text-align: center; 
+    overflow-y: scroll;
+}
+
+.descript > span {
+    display: block;
+    padding: 5px 5px;
+    text-wrap: wrap;
+}
+
+.descript::-webkit-scrollbar {
+    visibility: hidden;
+}
+
+.blur__card > button {
+    position: relative;
+    top: -8px;
+    width: 40%;
+    height: 8%;
+    font: "Arial Black", Gadget,sans-serif;
+    font-size: 17px;
+
+    color: whitesmoke;
+    background-color: var(--color);
+}
+
+.blur__card > button:active {
+    filter: drop-shadow(0 0 2px var(--color));
+
+}
+
+
+
+.light__cards {
+    margin-top: 40px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+    flex-wrap: wrap;
+    column-gap: 10px;
+    row-gap: 20px;
+
+    min-height: 250px;
+    max-height: 750px;
+    width: 100%;
+}
+
+.block__b {
+    --color: rgba(255,255, 255, .5);
+
+
+    overflow: hidden;
+    position: relative;
+    width: 250px;
+    height: 300px;
+
+    filter: saturate(70%);
+    backdrop-filter: drop-shadow(0 0 10px #000);
+    transition: filter .5s ease;
+
+}
+
+.block__b:hover {
+    filter: saturate(100%);
+}
+
+.block__b:hover > .light__card {
+    --color: rgba(245, 245, 245, .9);
+}
+
+.light__cards:hover > .block__b:not(:hover) {
+    filter: saturate(20%);
+}
+
+.light__cards:hover > .block__b:not(:hover) > .light__card > button {
+    color: rgba(245, 245, 245, .5);
+    filter: saturate(50%);
+}
+
+
+.light__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    align-content: space-around;
+
+    width: 100%;
+    height: 100%;
+
+    color: var(--color);
+    background: linear-gradient(90deg,
+     rgba(2,0,32,1) 50%, 
+     rgba(1,4,64,1) 50%,
+      rgb(0, 7, 88) 100%);
+
+    transition: color .5s ease;
+}
+
+
+.light__card > button {
+    position: relative;
+    top: -8px;
+    width: 50%;
+    height: 10%;
+    font: "Arial Black", Gadget,sans-serif;
+    font-size: 17px;
+
+    color: var(--color);
+    background-color: rgba(245, 245, 245, .3);
+
+    transition: filter .5s ease,
+                color .5s ease;
+}
+
+.light__card > button:active {
+    filter: drop-shadow(0 0 6px var(--color));
+}
+
+.block__b::before, .block__b::after,
+.light__card::before, .light__card::after {
+    --time: 2s;
+    --color-1: rgba(2,0,32,.1);
+    --color-2: rgba(0, 153, 181);
+    --time-func: var(--animation-func);
+    --size: 3px;
+
+    display: block;
+    content: ' ';
+
+    z-index: 2;
+    position: absolute;
+    opacity: 0;
+
+    transition: opacity .5s ease;
+}
+
+
+.block__b:hover::before, .block__b:hover::after,
+.block__b:hover > .light__card::before,
+.block__b:hover > .light__card::after {
+    opacity: 1;
+}
+
+@keyframes b_width_b {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
+.block__b::before {
+    animation: b_width_b var(--time) var(--time-func) 0s infinite normal forwards;
+    top: 0;
+    width: 100%;
+    height: var(--size);
+    background: linear-gradient(90deg, 
+    var(--color-1) 10%, var(--color-2) 100%);
+}
+
+
+@keyframes b_width_a {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+.block__b::after {
+    animation: b_width_a var(--time) var(--time-func) 0s infinite normal forwards;
+    bottom: 0;
+    width: 100%;
+    height: var(--size);
+    background: linear-gradient(-90deg, 
+    var(--color-1) 10%, var(--color-2) 100%);
+    
+}
+
+
+@keyframes l_height_b {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(200%);
+    }
+}
+.light__card::before {
+    animation: l_height_b var(--time) var(--time-func) calc(var(--time) / 2) infinite normal forwards;
+    top: -100%;
+    right: 0;
+    width: var(--size);
+    height: 100%;
+    background: linear-gradient(180deg, 
+    var(--color-1) 10%, var(--color-2) 100%);
+
+    
+}
+
+
+@keyframes l_height_a {
+    from {
+        transform: translateY(0%);
+    }
+    to {
+        transform: translateY(-200%);
+    }
+}
+.light__card::after {
+    animation: l_height_a var(--time) var(--time-func) calc(var(--time) / 2) infinite normal forwards;
+    bottom: -100%;
+    left: 0;
+    width: var(--size);
+    height: 100%;
+    background: linear-gradient(0deg,
+    var(--color-1) 10%, var(--color-2) 100%);
+    
+}
+
+
+
+footer {
+    height: 20vh;
+    width: 100%;
+}
+
+.buttons {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+img {
+    filter: invert(100%);
+}
+
+#youtube {
+    width: 30px;
+    height: 30px;
+}
+#telegram {
+    width: 40px;
+    height: 40px;
+}
+.buttons > button {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border: none;
+    border-radius: 100%;
+
+    width: 60px;
+    height: 60px;
+    color: whitesmoke;
+
+    background-color: transparent;
+    box-shadow: 0 0 10px #000;
+}
+
+.buttons > button > span {
+    font: var(--font-text);
+    font-size: 22px;
+}
+
+.buttons > button::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 0;
+    background: linear-gradient(150deg,
+     rgba(79,250,0,0.9) 5%,
+      rgba(212,70,0,0.8) 70%);
+     z-index: -1;
+
+     transition: height .5s ease-in-out;
+}
+
+.buttons > button:hover::before {
+    height: 100%;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang = "ru">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <header>
+        <h1>Форма</h1>
+    </header>
+    <body>
+        <form method="post" action="">
+            <div>
+                <label for="name">Введите имя: </label>
+                <input type="text" name="name" 
+                placeholder="Булат-Дамир"
+                required>
+            </div>
+            <div>
+                <label for="tel">Введите телефон: +7</label>
+                <input type="tel" name="tel" 
+                placeholder="##########"
+                pattern="[0-9]{10}"
+                required>
+            </div>
+            <div>
+                <label for="email">Введите email:</label>
+                <input type="email" name="email" 
+                placeholder="example@mail.ru"
+                required>
+            </div>
+            <div>
+                <label for="paswd">Введите пароль: </label>
+                <input type="password" name="passwd" 
+                placeholder="1234"
+                required>
+            </div>
+            <div>
+                <label for="fyle">Выберите файл: </label>
+                <input type="file" name="fyle" required>
+            </div>
+            <div>
+                <p>Выберите свои интересы</p>
+                <input type="checkbox" name="check" value="music">
+                <label for="music"> Музыка</label>
+                <input type="checkbox" name="check" value="coding">
+                <label for="coding"> Coding</label>
+            </div>
+            <fieldset>
+                <legend>Выберите пол</legend>
+                <div>
+                    <input type="radio" name="rad" value="man" checked />
+                    <label for="man"> Мужской</label>
+                </div>
+                <div>
+                    <input type="radio" name="rad" value="woman" />
+                    <label for="woman"> Женский</label>
+                </div>
+                <div>
+                    <input type="radio" name="rad" value="laminat" />
+                    <label for="laminat"> Ламинат</label>
+                </div>
+            </fieldset>
+            <p>
+                <input type="submit" value="Send Request">
+            </p>
+            <p>
+                <input
+                    type="datetime-local"
+                    name="date"
+                    value="2023-09-26T20:28"
+                    min="1980-01-01T00:00"
+                    max="2025-01-01T00:00"
+                />
+            </p>
+            <p>
+                <label for="about">Расскажите о себе:</label><br>
+                <textarea 
+                    id="about" 
+                    rows="7" 
+                    cols="35"
+                    minlength="20"
+                    maxlength="100"
+                    placeholder="30-летний хлеб"
+                    spellcheck="true"
+                    required></textarea>
+            </p>
+            <p>
+                <label for="children">Выберите имя ребенку</label>
+                <select name="children" id="children-select" required multiple size="5">
+                    <option value="default" selected>-- Имя --</option>
+                    <option value="yarik">Ярослав</option>
+                    <option value="danon">Даниил</option>
+                    <option value="antoshka">Антон</option>
+                    <option value="simen">Семён</option>
+                    <option value="slava">Славяна</option>
+                    <option value="peter">Пётр</option>
+                    <option value="vasilis">Василиса</option>
+                    <option value="bulat">Булат-Дамир</option>
+                </select>
+            </p>
+            <p><button type="reset">Cбросить данные</button></p>
+        </form>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d36238.25817347215!2d37.559637650000006!3d55.412250449999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sru!4v1695758940246!5m2!1sru!2sru" 
+            id = "maps"
+            allowfullscreen 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <iframe src="https://www.youtube.com/embed/Bym7UMqpVEY?si=BWKOgDY4rM9TGuNZ" 
+        class="video" 
+        frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen></iframe>
+    </body>
+</html>

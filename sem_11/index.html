@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1"
+        http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+    <style>
+        #contain {
+            margin: 50px;
+        }
+        #buttons {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            row-gap: 10px;
+        }
+        #arr {
+            list-style-type: hiragana;
+        }
+        #arr > li > span {
+            cursor: pointer;
+        }
+        #arr > li > span:hover {
+            text-decoration: underline dotted;
+        }
+    </style>
+    <body>
+        <div id="contain">
+            <p>Массив</p>
+            <label for="arr" id="lab">Массив пуст</label>
+            <ul id="arr">
+
+            </ul>
+            <p>Итого: <span id="res">0</span> ₽</p>
+            <div id="buttons">
+                <button id="add">Добавить товар в массив</button>
+                <button id="clear">Очистить массив</button>
+                <button id="filt">Фильтр</button>
+                <button id="sort_inc">Сортировать в порядке возрастания цены</button>
+                <button id="sort_dec">Сортировать в порядке убывания цены</button>
+            </div>
+        </div>
+        <div>
+            <p id="a"></p>
+            <ul id="new_arr">
+
+            </ul>
+        </div>
+        <script src="js.js"></script>
+    </body>
+</html>

@@ -1,0 +1,208 @@
+#contents {
+    margin: 40px;
+}
+
+#contents > a {
+    text-decoration: none;
+    cursor: pointer;
+    color:black
+}
+
+#contents > a:hover {
+    color: red;
+    text-decoration: underline double;
+}
+
+#galery {
+    margin: 20px auto 0;
+
+    width: 600px;
+    height: 500px;
+
+    display: grid;
+    grid-template-rows: 70% auto;
+    align-items: center;
+    justify-items: center;
+    row-gap: 20px
+}
+
+#img {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#imgs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    justify-items: center;
+    column-gap: 10px;
+}
+
+.addition {
+    height: 100%;
+    width: 100%;
+}
+
+.addition {
+    border: #000 solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: all .5s ease;
+}
+
+.addition:hover {
+    border: red solid 2px;
+    border-radius: 10px;
+}
+
+#main-img, .addition > img {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+
+
+#files {
+    margin: 0 0 20px 50px;
+}
+
+#files {
+    background-color: rgb(56, 49, 49);
+    padding: 30px 10px;
+}
+
+.file {
+    margin: 15px auto;
+    width: 90%;
+    border: #ffffff solid 1.5px;
+    color: whitesmoke;
+    border-radius: 10px;
+    padding: 5px 15px;
+
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.file:hover {
+    color: red;
+    text-decoration: underline dashed;
+
+    background-color: rgba(118, 118, 118, 0.3);
+}
+
+.selected {
+    background-color: rgba(231, 231, 231, 0.543);
+}
+.selected:hover {
+    background-color: rgba(231, 231, 231, 0.543);
+}
+
+
+#slider {
+    margin: 50px 0 20px 50px;
+    width: 90%;
+}
+
+#slider > span {
+    display: inline-block;
+    
+    margin-left: 20px;
+    font-size: 25px;
+    font-family: sans-serif;
+}
+
+#slid {
+    width: 50%;
+    -webkit-appearance: none;
+    appearance: none;
+
+    height: 15px;
+    background: #ccc;
+    border-radius: 15px;
+}
+
+#slid::-webkit-slider-thumb {
+    appearance: none;
+
+    height: 25px;
+    width: 10px;
+    background-color: rgb(57, 57, 174);
+    border-radius: 5px;
+}
+
+
+#magazin {
+
+    margin: 20px 30px;
+
+    display: grid;
+    grid-template-columns: 70% 25%;
+
+    column-gap: 20px;
+}
+
+#prods, #bin {
+    padding: 10px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 30px;
+    border: none;
+    background-color: rgba(134, 134, 134, 0.17);
+    border-radius: 10px;
+
+    transition: border .5s ease;
+}
+
+.prod {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+}
+
+.prod > img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#bin {
+
+    justify-content: center;
+    align-items: center;
+}
+
+#bin > .prod {
+    flex: none;
+}
+
+
+#animations {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+}
+
+#animations > div {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+   width: 600px;
+   height: 600px; 
+}
+
+#animations > div > img {
+    max-width: 500px;
+    max-height: 500px;
+    transform-origin: 50% 50%;
+}

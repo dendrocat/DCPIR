@@ -1,0 +1,36 @@
+textarea::placeholder {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: normal;
+    font-size: larger;
+    color: blue;
+}
+
+#about {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: larger;
+    font-style: normal;
+    color: cyan;
+    background-color: red;
+}
+
+#maps {
+    width: 70%;
+    height: 50vh;
+}
+textarea {
+    overflow-wrap: normal;
+}
+
+form>div {
+    margin: 10px;
+}
+
+input:focus{
+    color: #00f;
+}
+
+
+.video {
+    width: 80%;
+    height: 23rem;
+}

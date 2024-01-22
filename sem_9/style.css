@@ -1,0 +1,255 @@
+body {
+    --bord-r: 10px;
+    background-color: rgb(33,40,50);
+}
+
+.d1 {
+
+    position: relative;
+    left: 50%;
+    transform: translateX(-60%);
+    margin: 200px 0;
+    
+    width: 50%;
+    height: 40vh;
+    min-width: 340px;
+    max-width: 500px;
+    
+}
+
+.d2 {
+    width: 100%;
+    height: 100%;
+}
+
+ .d1::before, .d1::after, .d2::before {
+    display: block;
+    content: ' ';
+
+    position: absolute;
+
+    border-radius: var(--bord-r);
+    background-color: rgba(255, 255, 255, .1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    backdrop-filter: blur(5px); 
+}
+
+.d1::before {
+    animation: d1_before 2s cubic-bezier(.36,1.15,.52,-0.03) 0s infinite
+      alternate both;
+    animation-play-state: paused;
+
+    top: -10%;
+    right: -40%;
+    width: 150px;
+    height: 50px;
+}
+
+@keyframes d1_before {
+    from {
+        top: -10%;
+        right: -40%;
+        width: 150px;
+        height: 50px;
+    }
+    to {
+        width: 50px;
+        height: 150px;
+        top: 0%;
+        right: -30%;
+    }
+}
+
+.d1::after {
+    animation: d1_after 2.1s cubic-bezier(.23,1.75,.56,-0.81) 
+    0s infinite alternate both;
+    animation-play-state: paused;
+
+    width: 40px;
+    height: 100px;
+    bottom: 35%;
+    right: 95%;
+}
+
+@keyframes d1_after {
+    from {
+        width: 40px;
+        height: 100px;
+        bottom: 35%;
+        right: 95%;
+    }
+    to {
+        width: 90px;
+        height: 30px;
+        bottom: 0%;
+        right: 105%;
+    }
+}
+
+.d2::before {
+    animation: d2_before 5s cubic-bezier(.46,2.13,.52,-0.96) 0s
+                infinite alternate both;
+    animation-play-state: paused;
+
+    z-index: -1;
+    width: 80px;
+    height: 80px;
+
+    top: 70%;
+    left: 115%;
+}
+
+@keyframes d2_before {
+    from {
+        width: 80px;
+        transform: translateX(0%);
+    }
+    to {
+        width: 79px;
+        transform: translateX(-500px);
+    }
+}
+
+form {
+    --font-t: bold normal 24px sans-serif;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 50px;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: var(--bord-r);
+
+    color: whitesmoke;
+
+    background: rgba(255, 255, 255, .1);
+    backdrop-filter: blur(5px);
+    
+}
+
+ form::before, form::after {
+    display: block;
+    content: ' ';
+
+    z-index: 2;
+    position: absolute;
+
+    width: 50px;
+    height: 50px;
+    border-radius: var(--bord-r);
+    background-color: rgba(255, 255, 255, .1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    backdrop-filter: blur(5px); 
+}
+
+form::before {
+    animation: form_before 2s ease-in-out 0s infinite alternate both;
+    animation-play-state: paused;
+
+    top: -15%;
+    left: 20%;
+}
+
+@keyframes form_before {
+    from {
+        top: -15%;
+        left: 20%;
+        transform: rotate(0deg) skew(0deg, 0deg);
+    }
+    to {
+        top: -10%;
+        left: 30%;
+        transform: rotate(720deg) skew(40deg, 30deg);
+    }
+}
+
+form::after {
+    animation: form_after 2s cubic-bezier(1,2.38,.16,-0.87) 0s 
+                infinite alternate both;
+    animation-play-state: paused;
+
+    top: 105%;
+    right: 40%;
+}
+
+@keyframes form_after {
+    from {
+        top: 105%;
+        right: 40%;
+        transform: rotate(0) scale(1);
+    }
+    to {
+        top: 110%;
+        right: 60%;
+        transform: rotate(360deg) scale(2);
+    }
+}
+
+.d1:hover::before, .d1:hover::after,
+.d1:hover .d2::before, .d1:hover form::before,
+.d1:hover form::after {
+    animation-play-state: running;
+}
+
+
+.log {
+    font: var(--font-t);
+}
+.log + span {
+    margin-top: 2px;
+    display: block;
+    width: 70px;
+    height: 4px;
+    background-color: whitesmoke;
+}
+
+
+input {
+    height: 5vh;
+
+    border: none;
+    border-radius: 4vh;
+
+    background-color: rgba(255, 255, 255, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+input::placeholder {
+    font: var(--font-t);
+    font-size: 16px;
+    color: rgba(255, 255, 255, .4);
+}
+
+#confirm {
+    width: 23%;
+    height: 11%;
+    border-radius: 20px;
+
+    font: var(--font-t);
+    font-size: 18px;
+    color: rgba(0, 0, 0, .6);
+}
+
+.inf {
+    display: flex;
+    flex-direction: column;
+}
+
+.inf > span {
+    font: var(--font-t);
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.inf > span > a {
+    text-decoration: none;
+    color: red;
+}
+
+.inf > span > a:hover {
+    text-decoration: underline;
+}
